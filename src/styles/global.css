@@ -1477,6 +1477,7 @@ summary:focus-visible {
 
 .contact-dialog {
   position: fixed;
+  margin: auto;
   width: min(100% - 32px, 560px);
   max-width: 560px;
   max-height: min(92vh, 780px);
@@ -2226,4 +2227,15 @@ summary:focus-visible {
     opacity: 1;
     transform: none;
   }
+}
+.form-error {
+  margin: 0;
+  color: #9a3b2f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.65;
 }

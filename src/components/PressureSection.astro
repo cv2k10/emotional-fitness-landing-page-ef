@@ -1,0 +1,33 @@
+---
+import { challenges } from "../data/content";
+---
+
+<section class="pressure-section section-pad" id="reality" aria-labelledby="pressure-title">
+  <div class="page-width">
+    <div class="section-intro pressure-intro" data-reveal>
+      <div>
+        <p class="eyebrow section-eyebrow">01 / The quiet weight of success</p>
+        <h2 id="pressure-title">
+          Success on the outside doesn&apos;t always mean balance on the inside.
+        </h2>
+      </div>
+      <p class="section-intro-copy">
+        You can care deeply about the life you&apos;ve built and still feel
+        the strain of carrying it. That tension deserves attention, not
+        judgement.
+      </p>
+    </div>
+
+    <div class="challenge-grid">
+      {
+        challenges.map((challenge, index) => (
+          <div class="challenge-item" data-reveal>
+            <span class="challenge-number">0{index + 1}</span>
+            <p>{challenge}</p>
+            <span class="challenge-rule" aria-hidden="true" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

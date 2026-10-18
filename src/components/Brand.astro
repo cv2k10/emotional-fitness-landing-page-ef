@@ -1,0 +1,16 @@
+---
+interface Props {
+  class?: string;
+  label: string;
+}
+
+const { class: className, label } = Astro.props;
+---
+
+<a class:list={["brand", className]} href="#top" aria-label={label}>
+  <span class="brand-mark" aria-hidden="true">E<span>/</span>F</span>
+  <span class="brand-name">
+    <span>Emotional</span>
+    <span>Fitness</span>
+  </span>
+</a>

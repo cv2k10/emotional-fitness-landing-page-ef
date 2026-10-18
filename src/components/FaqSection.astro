@@ -1,0 +1,29 @@
+---
+import { faqs } from "../data/content";
+---
+
+<section class="faq-section section-pad" id="faq" aria-labelledby="faq-title">
+  <div class="page-width faq-layout">
+    <div class="faq-heading" data-reveal>
+      <p class="eyebrow section-eyebrow">07 / A few useful answers</p>
+      <h2 id="faq-title">Good questions deserve clear answers.</h2>
+      <p>
+        If you are unsure whether this approach is right for you, start
+        with the questions below.
+      </p>
+    </div>
+    <div class="faq-list">
+      {
+        faqs.map((faq) => (
+          <details class="faq-item" data-reveal>
+            <summary>
+              <span>{faq.question}</span>
+              <span class="faq-toggle" aria-hidden="true" />
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

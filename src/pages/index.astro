@@ -1,0 +1,33 @@
+---
+import AboutSection from "../components/AboutSection.astro";
+import ApproachSection from "../components/ApproachSection.astro";
+import ClosingSection from "../components/ClosingSection.astro";
+import ContactDialog from "../components/ContactDialog.astro";
+import FaqSection from "../components/FaqSection.astro";
+import GuideSection from "../components/GuideSection.astro";
+import Hero from "../components/Hero.astro";
+import PressureSection from "../components/PressureSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SupportSection from "../components/SupportSection.astro";
+import WorkshopSection from "../components/WorkshopSection.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <SiteHeader />
+  <main id="main-content">
+    <Hero />
+    <PressureSection />
+    <ApproachSection />
+    <GuideSection />
+    <WorkshopSection />
+    <SupportSection />
+    <AboutSection />
+    <FaqSection />
+    <ClosingSection />
+  </main>
+  <SiteFooter />
+  <ContactDialog />
+</BaseLayout>

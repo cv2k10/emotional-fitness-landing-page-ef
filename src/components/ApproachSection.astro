@@ -1,0 +1,35 @@
+---
+import { benefits } from "../data/content";
+import PillarIcon from "./icons/PillarIcon.astro";
+---
+
+<section class="approach-section section-pad" id="approach" aria-labelledby="approach-title">
+  <div class="page-width">
+    <div class="approach-heading" data-reveal>
+      <p class="eyebrow section-eyebrow">02 / A skill for the whole self</p>
+      <h2 id="approach-title">
+        Train your emotional fitness like you train your professional skills.
+      </h2>
+      <p>
+        Emotional fitness is the everyday capacity to notice what is
+        happening within you, stay present through pressure, and choose
+        how you want to respond. It is a practice, not a personality type.
+      </p>
+    </div>
+
+    <div class="benefit-grid">
+      {
+        benefits.map((benefit) => (
+          <article class="benefit-item" data-reveal>
+            <div class="benefit-topline">
+              <span>{benefit.number}</span>
+              <PillarIcon name={benefit.icon} />
+            </div>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

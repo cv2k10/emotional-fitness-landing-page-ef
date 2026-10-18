@@ -1,0 +1,34 @@
+---
+import Brand from "./Brand.astro";
+---
+
+<footer class="site-footer">
+  <div class="page-width footer-main">
+    <Brand class="footer-brand" label="Emotional Fitness, back to top" />
+    <p class="footer-signoff">A practice for people who lead.</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#approach">The approach</a>
+      <a href="#guide">Free guide</a>
+      <a href="#workshop">Workshop</a>
+      <a href="#support">One-to-one</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+  </div>
+  <div class="page-width footer-bottom">
+    <p id="privacy">
+      Privacy note: the preview forms do not store or transmit data beyond
+      validation. Add an approved privacy policy and connect your chosen email,
+      booking, and analytics providers before launch.
+    </p>
+    <p>
+      Emotional fitness support is developmental and educational; it is not
+      a substitute for therapy or medical care.
+    </p>
+    <span data-copyright>© {new Date().getFullYear()} Emotional Fitness</span>
+  </div>
+</footer>
+
+<script>
+  // The page is prerendered, so refresh the build-time year in the browser.
+  document.querySelector("[data-copyright]")!.textContent = `© ${new Date().getFullYear()} Emotional Fitness`;
+</script>

@@ -1,0 +1,123 @@
+---
+import ArrowRight from "./icons/ArrowRight.astro";
+---
+
+<section class="guide-section section-pad" id="guide" aria-labelledby="guide-title">
+  <div class="page-width guide-layout">
+    <div class="guide-art-wrap" data-reveal>
+      <div class="guide-art" aria-label="The High Achiever's Emotional Fitness Check-In guide cover">
+        <div class="guide-art-top">
+          <span>E / F</span>
+          <span>FIELD NOTE 001</span>
+        </div>
+        <div class="guide-art-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p class="guide-art-title">
+          The high achiever&apos;s
+          <em>emotional fitness</em>
+          check-in
+        </p>
+        <div class="guide-art-bottom">
+          <span>REFLECTION GUIDE</span>
+          <span>01 — 04</span>
+        </div>
+      </div>
+      <p class="guide-art-caption">A considered pause for a full life.</p>
+    </div>
+
+    <div class="guide-copy" data-reveal>
+      <p class="eyebrow section-eyebrow">03 / A free reflection guide</p>
+      <h2 id="guide-title">The High Achiever&apos;s Emotional Fitness Check-In</h2>
+      <p class="guide-description">
+        Discover the emotional patterns that may be influencing your
+        energy, decisions, and relationships. Use this practical guide
+        to reflect on where you are today and identify one area to strengthen.
+      </p>
+      <ul class="guide-includes">
+        <li>A short self-reflection questionnaire</li>
+        <li>Five prompts for recognising emotional patterns</li>
+        <li>A simple daily emotional fitness exercise</li>
+        <li>One practical next step</li>
+      </ul>
+
+      <form class="guide-form" data-track="lead_magnet_submit">
+        <div class="form-fields">
+          <label class="field-label">
+            First name
+            <input autocomplete="given-name" name="firstName" required />
+          </label>
+          <label class="field-label">
+            Email address
+            <input autocomplete="email" name="email" type="email" required />
+          </label>
+        </div>
+        <label class="consent-label">
+          <input name="emailConsent" type="checkbox" required />
+          <span>
+            Send me the guide and occasional emotional fitness notes. I
+            can unsubscribe at any time.
+          </span>
+        </label>
+        <button class="button button-dark" type="submit">
+          Get the free guide <ArrowRight />
+        </button>
+        <p class="form-error" role="alert" hidden></p>
+        <p class="privacy-reassurance">
+          Your details are treated with care. See the{" "}
+          <a href="#privacy">privacy note</a>.
+        </p>
+        <p class="prototype-note">
+          Preview only: submissions are validated by the API but not yet stored or
+          emailed. Connect an email provider before launch.
+        </p>
+      </form>
+
+      <div class="guide-success" role="status" aria-live="polite" hidden>
+        <p class="guide-success-title">Your check-in is ready.</p>
+        <p>
+          Download the guide and take a few minutes to notice what is
+          asking for your attention.
+        </p>
+        <a
+          class="button button-dark"
+          href="/emotional-fitness-check-in.html"
+          download="emotional-fitness-check-in.html"
+          data-conversion="lead_magnet_download"
+        >
+          Download the free guide <ArrowRight />
+        </a>
+        <p class="prototype-note">No details were saved or sent in this preview.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { recordConversion } from "../scripts/analytics";
+  import { readContactForm, submitContact } from "../scripts/submit-contact";
+
+  const form = document.querySelector<HTMLFormElement>(".guide-form")!;
+  const success = document.querySelector<HTMLElement>(".guide-success")!;
+  const error = form.querySelector<HTMLElement>(".form-error")!;
+  const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    error.hidden = true;
+    button.disabled = true;
+    try {
+      await submitContact("/api/guide-signups", readContactForm(form, "emailConsent"));
+      form.hidden = true;
+      success.hidden = false;
+      recordConversion("lead_magnet_submit");
+    } catch (submitError) {
+      error.textContent = (submitError as Error).message;
+      error.hidden = false;
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
