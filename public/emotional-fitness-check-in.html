@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>The High Achiever's Emotional Fitness Check-In</title>
+    <style>
+      :root {
+        color: #203531;
+        background: #f5f3ed;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+      * { box-sizing: border-box; }
+      body { max-width: 840px; margin: 0 auto; padding: 36px 24px 70px; }
+      .masthead { display: flex; justify-content: space-between; padding-bottom: 13px; border-bottom: 1px solid #bac2b7; color: #718078; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+      .cover { display: flex; min-height: 540px; flex-direction: column; justify-content: space-between; margin: 30px 0 54px; padding: 40px; background: #153234; color: #f5f2e9; }
+      .cover-kicker { color: #d0b888; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.04; }
+      h1 { max-width: 620px; margin: 50px 0 20px; font-size: clamp(48px, 9vw, 78px); letter-spacing: -.04em; }
+      h1 em { display: block; color: #d9dfd2; font-weight: 400; }
+      .cover p { max-width: 460px; color: #d2d7ce; font-size: 14px; }
+      .cover-footer { display: flex; justify-content: space-between; border-top: 1px solid #667772; padding-top: 16px; color: #d9ddcf; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+      .section-number { color: #9b8965; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+      h2 { margin: 7px 0 17px; font-size: 38px; letter-spacing: -.025em; }
+      h3 { margin: 25px 0 9px; font-size: 24px; }
+      p { margin: 0 0 15px; }
+      .intro { max-width: 650px; color: #5d6a63; }
+      .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 23px 0 19px; }
+      .scale span { padding: 11px 8px; border: 1px solid #d2d8ce; color: #57645d; font-size: 11px; text-align: center; }
+      .question { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 17px 0; border-top: 1px solid #d0d5cd; }
+      .question p { margin: 0; font-size: 14px; }
+      .checks { display: flex; gap: 8px; }
+      .checks span { width: 17px; height: 17px; border: 1px solid #92a094; border-radius: 50%; }
+      .prompt { margin: 15px 0 0; padding: 18px 20px; border-left: 2px solid #b5a078; background: #ebece5; }
+      .prompt strong { display: block; margin-bottom: 5px; color: #273e39; font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 400; }
+      .write-line { height: 36px; border-bottom: 1px solid #c9d0c6; }
+      .exercise { display: grid; grid-template-columns: 45px 1fr; gap: 14px; padding: 17px 0; border-top: 1px solid #d0d5cd; }
+      .exercise-number { color: #9b8965; font-family: Georgia, "Times New Roman", serif; font-size: 22px; }
+      .exercise strong { display: block; margin-bottom: 2px; color: #273e39; }
+      .next-step { margin-top: 28px; padding: 23px; border: 1px solid #c6cec3; }
+      .next-step p { margin-bottom: 8px; color: #5d6a63; }
+      .note { margin-top: 36px; padding-top: 14px; border-top: 1px solid #cbd1c8; color: #6b776f; font-size: 11px; }
+      @media (max-width: 560px) {
+        body { padding-inline: 17px; }
+        .cover { min-height: 460px; padding: 28px; }
+        .question { grid-template-columns: 1fr; gap: 10px; }
+        .checks { justify-content: space-between; max-width: 180px; }
+        h2 { font-size: 33px; }
+      }
+      @media print {
+        @page { size: A4; margin: 17mm; }
+        body { max-width: none; padding: 0; font-size: 11pt; }
+        .cover { min-height: 245mm; margin: 0; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+        .print-page { break-before: page; }
+        .prompt, .next-step, .scale span { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="masthead"><span>Emotional Fitness</span><span>A reflective field guide</span></div>
+    <section class="cover" aria-labelledby="guide-title">
+      <div>
+        <p class="cover-kicker">A practice for people who lead</p>
+        <h1 id="guide-title">The High Achiever's <em>Emotional Fitness</em> Check-In</h1>
+        <p>A considered pause to notice the patterns influencing your energy, decisions, and relationships.</p>
+      </div>
+      <div class="cover-footer"><span>Reflection guide</span><span>01 / 04</span></div>
+    </section>
+
+    <section aria-labelledby="start-title">
+      <p class="section-number">01 / Notice where you are</p>
+      <h2 id="start-title">A starting point, not a score.</h2>
+      <p class="intro">Take a quiet moment with each statement. Mark the response that feels most true for you lately. There are no right answers, and this is not a diagnostic tool. Use what you notice as information, not a judgement.</p>
+      <div class="scale" aria-label="Reflection scale">
+        <span>1 · Rarely</span><span>2 · Sometimes</span><span>3 · Often</span><span>4 · Most days</span><span>5 · Almost always</span>
+      </div>
+      <div class="question"><p>I can notice when pressure is beginning to affect how I feel.</p><div class="checks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="question"><p>I can make a little space between a strong feeling and my response.</p><div class="checks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="question"><p>I can switch my attention away from work when I choose to.</p><div class="checks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="question"><p>I can name what I need in a demanding moment.</p><div class="checks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="question"><p>My decisions reflect what matters to me, as well as what is urgent.</p><div class="checks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="prompt"><strong>What stands out?</strong>Which statement did you pause on? What might that tell you about what needs your attention?</div>
+      <div class="write-line"></div>
+    </section>
+
+    <section class="print-page" aria-labelledby="patterns-title">
+      <p class="section-number">02 / Recognise your patterns</p>
+      <h2 id="patterns-title">Five prompts for a clearer picture.</h2>
+      <p class="intro">You do not need to answer all five at once. Choose the prompt that feels most useful today and write without trying to find a perfect answer.</p>
+      <div class="prompt"><strong>1. When does my energy change?</strong>What tends to happen just before I feel more stretched, distracted, or depleted?</div>
+      <div class="prompt"><strong>2. What is my first response under pressure?</strong>Do I speed up, withdraw, take over, seek reassurance, or do something else?</div>
+      <div class="prompt"><strong>3. Which conversations stay with me?</strong>What might they reveal about a value, boundary, or need that matters?</div>
+      <div class="prompt"><strong>4. Where do I make room for recovery?</strong>What helps me transition out of work, even briefly?</div>
+      <div class="prompt"><strong>5. What would a thoughtful response look like?</strong>In one current situation, what might I choose if I had a little more space?</div>
+      <h3>A note to return to</h3>
+      <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+    </section>
+
+    <section class="print-page" aria-labelledby="practice-title">
+      <p class="section-number">03 / A simple daily practice</p>
+      <h2 id="practice-title">Pause. Notice. Choose.</h2>
+      <p class="intro">Try this brief check-in at a natural transition in your day: before a meeting, after a difficult conversation, or when you close your laptop. Take as much or as little time as feels useful.</p>
+      <div class="exercise"><span class="exercise-number">01</span><div><strong>Pause</strong>Let your attention settle for a moment. Feel your feet on the floor or notice one steady breath.</div></div>
+      <div class="exercise"><span class="exercise-number">02</span><div><strong>Name</strong>What emotion, sensation, or thought is most present right now? Use ordinary words; there is no need to fix it.</div></div>
+      <div class="exercise"><span class="exercise-number">03</span><div><strong>Ask</strong>What might this moment be asking of me? Is there a need, value, or boundary worth noticing?</div></div>
+      <div class="exercise"><span class="exercise-number">04</span><div><strong>Choose</strong>What is one response I can take intentionally, rather than automatically?</div></div>
+      <div class="exercise"><span class="exercise-number">05</span><div><strong>Reflect</strong>Afterwards, note what you learned. A useful practice is one you can return to, not one you have to get perfect.</div></div>
+      <div class="next-step">
+        <p class="section-number">04 / One practical next step</p>
+        <h3>What will I try this week?</h3>
+        <p>A moment I want to meet differently:</p><div class="write-line"></div>
+        <p>One small practice I will make room for:</p><div class="write-line"></div>
+        <p>When I will check in with myself again:</p><div class="write-line"></div>
+      </div>
+      <p class="note">This guide is for personal reflection and education. It is not a diagnostic tool or a substitute for mental health care. If you need clinical support, contact a qualified professional.</p>
+    </section>
+  </body>
+</html>
