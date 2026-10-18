@@ -2239,3 +2239,27 @@ summary:focus-visible {
   cursor: progress;
   opacity: 0.65;
 }
+
+/* Demo notice above the header; .page-shell keeps the absolutely positioned header below it. */
+.demo-banner {
+  padding: 9px 16px;
+  background: var(--gold);
+  color: var(--deep);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.demo-banner p {
+  margin: 0;
+}
+
+.demo-banner strong {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-shell {
+  position: relative;
+}

@@ -42,6 +42,6 @@ A single-page marketing landing page for "Emotional Fitness" (emotional-fitness 
 - `NOTIFY_TO` must be a *verified destination address* in Email Routing. A routing address such as admin@createyourbestsite.com is rejected with "destination address is not a verified address". Sending to arbitrary recipients would need Cloudflare Email Sending (Workers Paid).
 - `wrangler dev` only simulates the email binding: it logs each message instead of sending it. Add `"remote": true` to the binding to send real mail during development. Debug live send failures with `npx wrangler tail`.
 
-## Content placeholders
+## Demo content
 
-The guide's portrait (`public/images/guide-portrait-placeholder.jpg`), name and credentials, plus the workshop/session duration, price and dates, are deliberate placeholders shown as `[…]` or "to be confirmed". Don't invent real values.
+This is a demo site. `DemoBanner.astro` (above the header, inside `index.astro`) says so on every page load. The workshop and session details, the guide profile (Daniel Marsh) and the portrait (`public/images/guide-portrait-placeholder.jpg`) are fictional sample data. The workshop title and learning outcomes are still "to be confirmed". When real details arrive, replace the sample values and remove the "Sample … for this demo site" notes along with the banner. The header is absolutely positioned inside `.page-shell`, which is what keeps it below the banner.
