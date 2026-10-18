@@ -25,10 +25,6 @@ import ArrowRight from "./icons/ArrowRight.astro";
         <input name="contactConsent" type="checkbox" required />
         <span>I agree to be contacted about this request.</span>
       </label>
-      <p class="prototype-note dialog-prototype-note">
-        Preview only: requests are validated by the API but not yet stored or
-        sent. Connect a secure form and booking provider before launch.
-      </p>
       <p class="form-error" role="alert" hidden></p>
       <button class="button button-dark" type="submit">
         <span data-dialog-submit></span>
@@ -39,8 +35,8 @@ import ArrowRight from "./icons/ArrowRight.astro";
     <div class="dialog-success" role="status" aria-live="polite" hidden>
       <p class="guide-success-title">Thank you for your interest.</p>
       <p>
-        This preview does not save or send your request. Connect the
-        approved form and booking provider to make this step live.
+        Your request has been received. You&apos;ll hear back by email
+        once availability is confirmed.
       </p>
       <button class="text-link dialog-return" type="button" data-close-dialog>
         Return to the page <ArrowRight />

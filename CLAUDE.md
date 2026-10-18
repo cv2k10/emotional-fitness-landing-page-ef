@@ -38,7 +38,9 @@ A single-page marketing landing page for "Emotional Fitness" (emotional-fitness 
 
 - `server/api.ts` is mounted at `/api`. It has `GET /health`, `POST /guide-signups` and `POST /enquiries`. Request bodies are JSON and validated with the zod schemas in `server/schemas.ts`; invalid bodies get a 400 `{ ok: false }`.
 - The frontend posts to these routes through `src/scripts/submit-contact.ts`. If you change a request shape, update both sides; no types are shared between them.
-- **Submissions are validated but not stored or forwarded yet** (`stored: false`). Hook up an email/booking provider, or add a D1/KV binding (declare it in `wrangler.jsonc` and in `server/env.ts`), where the "Placeholder" comments are. The site copy ("Preview only…", the privacy note in `SiteFooter.astro`) tells visitors this. Update that copy once data is actually stored.
+- **Submissions are emailed to the site owner, not stored.** `server/notify.ts` sends each one through the `NOTIFY_EMAIL` `send_email` binding, from `NOTIFY_FROM` (admin@createyourbestsite.com, on the Email Routing domain) to `NOTIFY_TO` (cv2k10@gmail.com). The visitor's address is set as Reply-To. All three are set in `wrangler.jsonc`, and their types are in `server/env.ts`. If `NOTIFY_FROM` is empty, notifications are skipped (`notified: false`). If sending fails, the API returns a 500 and the form shows an error.
+- `NOTIFY_TO` must be a *verified destination address* in Email Routing. A routing address such as admin@createyourbestsite.com is rejected with "destination address is not a verified address". Sending to arbitrary recipients would need Cloudflare Email Sending (Workers Paid).
+- `wrangler dev` only simulates the email binding: it logs each message instead of sending it. Add `"remote": true` to the binding to send real mail during development. Debug live send failures with `npx wrangler tail`.
 
 ## Content placeholders
 

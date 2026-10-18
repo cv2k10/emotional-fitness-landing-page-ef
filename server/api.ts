@@ -1,6 +1,7 @@
 import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
-import { enquirySchema, guideSignupSchema } from "./schemas";
+import { enquiryLabels, enquirySchema, guideSignupSchema } from "./schemas";
+import { notifyOwner } from "./notify";
 import type { Env } from "./env";
 
 const invalidBody = { ok: false, error: "Invalid request body" } as const;
@@ -14,9 +15,19 @@ export const api = new Hono<Env>()
     zValidator("json", guideSignupSchema, (result, c) => {
       if (!result.success) return c.json(invalidBody, 400);
     }),
-    (c) => {
-      // Placeholder: forward c.req.valid("json") to the email provider (or persist in D1/KV) before launch.
-      return c.json({ ok: true, stored: false });
+    async (c) => {
+      const { firstName, email } = c.req.valid("json");
+      const notified = await notifyOwner(c.env, {
+        subject: `New guide sign-up: ${firstName}`,
+        replyTo: email,
+        lines: [
+          ["Form", "Free check-in guide"],
+          ["First name", firstName],
+          ["Email", email],
+          ["Consent", "Agreed to receive the guide and occasional notes"],
+        ],
+      });
+      return c.json({ ok: true, notified });
     },
   )
 
@@ -26,8 +37,18 @@ export const api = new Hono<Env>()
     zValidator("json", enquirySchema, (result, c) => {
       if (!result.success) return c.json(invalidBody, 400);
     }),
-    (c) => {
-      // Placeholder: forward c.req.valid("json") to the booking/CRM provider before launch.
-      return c.json({ ok: true, stored: false, kind: c.req.valid("json").kind });
+    async (c) => {
+      const { firstName, email, kind } = c.req.valid("json");
+      const notified = await notifyOwner(c.env, {
+        subject: `${enquiryLabels[kind]}: ${firstName}`,
+        replyTo: email,
+        lines: [
+          ["Form", enquiryLabels[kind]],
+          ["First name", firstName],
+          ["Email", email],
+          ["Consent", "Agreed to be contacted about this request"],
+        ],
+      });
+      return c.json({ ok: true, notified, kind });
     },
   );

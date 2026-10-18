@@ -4,6 +4,14 @@
   "main": "server/index.ts",
   "compatibility_date": "2026-10-01",
   "observability": { "enabled": true },
+  "vars": {
+    // Must be a *verified destination* in Email Routing (the inbox admin@createyourbestsite.com forwards to);
+    // routing addresses such as admin@ are rejected with "destination address is not a verified address".
+    "NOTIFY_TO": "cv2k10@gmail.com",
+    // Sender on the createyourbestsite.com Email Routing domain. Leave empty to disable notifications.
+    "NOTIFY_FROM": "admin@createyourbestsite.com"
+  },
+  "send_email": [{ "name": "NOTIFY_EMAIL", "destination_address": "cv2k10@gmail.com" }],
   "assets": {
     // Built Astro site. Only /api/* requests reach the worker; everything else is served directly.
     "directory": "./dist",
