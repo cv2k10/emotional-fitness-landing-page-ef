@@ -15,9 +15,9 @@ export const api = new Hono<Env>()
     zValidator("json", guideSignupSchema, (result, c) => {
       if (!result.success) return c.json(invalidBody, 400);
     }),
-    async (c) => {
+    (c) => {
       const { firstName, email } = c.req.valid("json");
-      const notified = await notifyOwner(c.env, {
+      const notified = notifyOwner(c, {
         subject: `New guide sign-up: ${firstName}`,
         replyTo: email,
         lines: [
@@ -37,9 +37,9 @@ export const api = new Hono<Env>()
     zValidator("json", enquirySchema, (result, c) => {
       if (!result.success) return c.json(invalidBody, 400);
     }),
-    async (c) => {
+    (c) => {
       const { firstName, email, kind } = c.req.valid("json");
-      const notified = await notifyOwner(c.env, {
+      const notified = notifyOwner(c, {
         subject: `${enquiryLabels[kind]}: ${firstName}`,
         replyTo: email,
         lines: [

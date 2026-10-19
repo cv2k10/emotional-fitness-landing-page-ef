@@ -27,7 +27,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
       </label>
       <p class="form-error" role="alert" hidden></p>
       <button class="button button-dark" type="submit">
-        <span data-dialog-submit></span>
+        <span data-dialog-submit data-label></span>
         <ArrowRight />
       </button>
     </form>
@@ -48,7 +48,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
 <script>
   import { dialogContent, type DialogKind } from "../data/content";
   import { recordConversion } from "../scripts/analytics";
-  import { readContactForm, submitContact } from "../scripts/submit-contact";
+  import { readContactForm, setSubmitting, submitContact } from "../scripts/submit-contact";
 
   const dialog = document.querySelector<HTMLDialogElement>(".contact-dialog")!;
   const form = dialog.querySelector<HTMLFormElement>(".dialog-form")!;
@@ -91,7 +91,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
     if (!activeKind) return;
     const kind = activeKind;
     error.hidden = true;
-    submitButton.disabled = true;
+    setSubmitting(submitButton, true);
     try {
       await submitContact("/api/enquiries", { ...readContactForm(form, "contactConsent"), kind });
       form.hidden = true;
@@ -101,7 +101,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
       error.textContent = (submitError as Error).message;
       error.hidden = false;
     } finally {
-      submitButton.disabled = false;
+      setSubmitting(submitButton, false);
     }
   });
 </script>

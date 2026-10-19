@@ -62,7 +62,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
           </span>
         </label>
         <button class="button button-dark" type="submit">
-          Get the free guide <ArrowRight />
+          <span data-label>Get the free guide</span> <ArrowRight />
         </button>
         <p class="form-error" role="alert" hidden></p>
         <p class="privacy-reassurance">
@@ -92,7 +92,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
 
 <script>
   import { recordConversion } from "../scripts/analytics";
-  import { readContactForm, submitContact } from "../scripts/submit-contact";
+  import { readContactForm, setSubmitting, submitContact } from "../scripts/submit-contact";
 
   const form = document.querySelector<HTMLFormElement>(".guide-form")!;
   const success = document.querySelector<HTMLElement>(".guide-success")!;
@@ -102,7 +102,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     error.hidden = true;
-    button.disabled = true;
+    setSubmitting(button, true);
     try {
       await submitContact("/api/guide-signups", readContactForm(form, "emailConsent"));
       form.hidden = true;
@@ -112,7 +112,7 @@ import ArrowRight from "./icons/ArrowRight.astro";
       error.textContent = (submitError as Error).message;
       error.hidden = false;
     } finally {
-      button.disabled = false;
+      setSubmitting(button, false);
     }
   });
 </script>

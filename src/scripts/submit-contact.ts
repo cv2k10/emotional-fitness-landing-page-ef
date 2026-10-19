@@ -37,3 +37,18 @@ export function readContactForm(form: HTMLFormElement, consentField: string): Co
     consent: data.get(consentField) === "on",
   };
 }
+
+/** Disables a submit button and swaps its `[data-label]` text for "Sending…" while a request is in flight. */
+export function setSubmitting(button: HTMLButtonElement, submitting: boolean) {
+  const label = button.querySelector<HTMLElement>("[data-label]");
+  button.disabled = submitting;
+  button.setAttribute("aria-busy", String(submitting));
+  if (!label) return;
+  if (submitting) {
+    label.dataset.idleText = label.textContent ?? "";
+    label.textContent = "Sending…";
+  } else if (label.dataset.idleText !== undefined) {
+    label.textContent = label.dataset.idleText;
+    delete label.dataset.idleText;
+  }
+}
