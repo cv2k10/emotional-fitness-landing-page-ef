@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>The High Achiever's Emotional Fitness Check-In</title>
+    <meta name="author" content="Emotional Fitness" />
+    <meta name="description" content="A free reflection guide for people who lead." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=block"
+      rel="stylesheet"
+    />
+    <!--
+      Source for public/emotional-fitness-check-in.pdf (the lead-magnet download).
+      Rebuild with `npm run build:guide`. Each .page is one fixed A4 sheet, so check
+      that content still fits after editing (overflow is clipped, not reflowed).
+    -->
+    <style>
+      :root {
+        --ink: #1b302f;
+        --deep: #10292b;
+        --deep-soft: #193638;
+        --paper: #f4f2ec;
+        --ivory: #f9f7f1;
+        --sage: #dfe5dc;
+        --muted: #687672;
+        --gold: #c4aa7e;
+        --gold-deep: #9b8965;
+        --rule: #cfd5cc;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", Arial, sans-serif;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+      }
+
+      body {
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 10.5pt;
+        line-height: 1.6;
+      }
+
+      .page {
+        position: relative;
+        display: flex;
+        width: 210mm;
+        height: 297mm;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 20mm 20mm 16mm;
+        background: var(--paper);
+        break-after: page;
+      }
+
+      .page:last-child {
+        break-after: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 400;
+        line-height: 1.02;
+      }
+
+      p {
+        margin: 0 0 3.2mm;
+      }
+
+      .eyebrow {
+        margin: 0 0 3mm;
+        color: var(--gold-deep);
+        font-size: 7.5pt;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 4mm;
+        font-size: 30pt;
+        letter-spacing: -0.02em;
+      }
+
+      h2 em {
+        color: #4f6560;
+      }
+
+      h3 {
+        font-size: 16pt;
+      }
+
+      .lead {
+        max-width: 145mm;
+        color: #4f5d58;
+        font-size: 10.5pt;
+      }
+
+      .masthead {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 11mm;
+        padding-bottom: 3mm;
+        border-bottom: 0.3mm solid var(--rule);
+        color: var(--muted);
+        font-size: 7pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .masthead strong {
+        color: var(--gold-deep);
+        font-family: var(--serif);
+        font-size: 11pt;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      .page-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 3mm;
+        border-top: 0.3mm solid var(--rule);
+        color: var(--muted);
+        font-size: 7pt;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .write-line {
+        height: 8.5mm;
+        border-bottom: 0.3mm solid #c3cbc0;
+      }
+
+      /* ---------- Cover ---------- */
+
+      .cover {
+        justify-content: space-between;
+        padding: 22mm 20mm 18mm;
+        background:
+          radial-gradient(ellipse at 83% 18%, rgba(106, 134, 118, 0.5), transparent 36%),
+          linear-gradient(155deg, #254544 0%, #163638 53%, #112b2e 100%);
+        color: #f1eee5;
+      }
+
+      .cover::after {
+        position: absolute;
+        top: 38%;
+        right: -40mm;
+        width: 125mm;
+        height: 125mm;
+        border: 0.3mm solid rgba(203, 183, 144, 0.4);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .cover-top,
+      .cover-bottom {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #d5d6c9;
+        font-size: 7.5pt;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .cover-mark {
+        color: var(--gold);
+        font-family: var(--serif);
+        font-size: 20pt;
+        letter-spacing: -0.02em;
+      }
+
+      .cover-lines {
+        position: absolute;
+        top: 27%;
+        right: 26mm;
+        display: flex;
+        align-items: center;
+        gap: 3mm;
+        transform: rotate(-35deg);
+      }
+
+      .cover-lines span {
+        display: block;
+        width: 0.3mm;
+        height: 42mm;
+        background: var(--gold);
+        opacity: 0.72;
+      }
+
+      .cover-lines span:nth-child(2) {
+        height: 60mm;
+        opacity: 0.43;
+      }
+
+      .cover-lines span:nth-child(3) {
+        height: 30mm;
+        opacity: 0.58;
+      }
+
+      .cover-body {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cover-kicker {
+        margin-bottom: 9mm;
+        color: var(--gold);
+        font-size: 8pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .cover h1 {
+        max-width: 125mm;
+        font-size: 58pt;
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+      }
+
+      .cover h1 em {
+        display: block;
+        color: #cfccb9;
+      }
+
+      .cover-intro {
+        max-width: 105mm;
+        margin-top: 10mm;
+        color: #cfd5cc;
+        font-size: 11pt;
+      }
+
+      .cover-bottom {
+        padding-top: 5mm;
+        border-top: 0.3mm solid rgba(213, 214, 201, 0.3);
+      }
+
+      /* ---------- Welcome ---------- */
+
+      .welcome-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm;
+        margin: 8mm 0;
+      }
+
+      .part-card {
+        padding: 5mm 5mm 4mm;
+        border: 0.3mm solid var(--rule);
+        background: var(--ivory);
+      }
+
+      .part-card span {
+        display: block;
+        margin-bottom: 2mm;
+        color: var(--gold-deep);
+        font-family: var(--serif);
+        font-size: 18pt;
+        line-height: 1;
+      }
+
+      .part-card h3 {
+        margin-bottom: 1.5mm;
+        font-size: 14pt;
+      }
+
+      .part-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 9pt;
+        line-height: 1.5;
+      }
+
+      .part-card small {
+        display: block;
+        margin-top: 2.5mm;
+        color: var(--gold-deep);
+        font-size: 7pt;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .callout {
+        padding: 5mm 6mm;
+        border-left: 0.6mm solid var(--gold);
+        background: var(--sage);
+      }
+
+      .callout strong {
+        display: block;
+        margin-bottom: 1mm;
+        font-family: var(--serif);
+        font-size: 14pt;
+        font-weight: 500;
+      }
+
+      .callout p {
+        margin: 0;
+        color: #45534e;
+        font-size: 9.5pt;
+      }
+
+      .callout + .callout {
+        margin-top: 4mm;
+      }
+
+      /* ---------- Questionnaire ---------- */
+
+      .scale-key {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0;
+        margin: 4mm 0 1mm;
+        color: var(--muted);
+        font-size: 6.5pt;
+        letter-spacing: 0.06em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .scale-key span {
+        width: 11mm;
+      }
+
+      .question {
+        display: grid;
+        grid-template-columns: 7mm 1fr 55mm;
+        align-items: center;
+        padding: 2.6mm 0;
+        border-top: 0.3mm solid var(--rule);
+      }
+
+      .question:last-of-type {
+        border-bottom: 0.3mm solid var(--rule);
+      }
+
+      .question .num {
+        color: var(--gold-deep);
+        font-size: 8pt;
+      }
+
+      .question p {
+        margin: 0;
+        padding-right: 4mm;
+        font-size: 9.5pt;
+        line-height: 1.45;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .dots span {
+        display: flex;
+        width: 11mm;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 7pt;
+      }
+
+      .dots span::before {
+        display: flex;
+        width: 5.5mm;
+        height: 5.5mm;
+        align-items: center;
+        justify-content: center;
+        border: 0.3mm solid #92a094;
+        border-radius: 50%;
+        content: attr(data-n);
+      }
+
+      .score-row {
+        display: grid;
+        grid-template-columns: 52mm 1fr;
+        gap: 5mm;
+        margin-top: 6mm;
+      }
+
+      .score-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5mm;
+        background: var(--deep-soft);
+        color: #f1eee5;
+      }
+
+      .score-box .eyebrow {
+        color: var(--gold);
+      }
+
+      .score-box .total {
+        font-family: var(--serif);
+        font-size: 26pt;
+        line-height: 1;
+      }
+
+      .score-box .total span {
+        display: inline-block;
+        width: 18mm;
+        border-bottom: 0.3mm solid rgba(241, 238, 229, 0.6);
+      }
+
+      .bands {
+        display: grid;
+        gap: 2mm;
+      }
+
+      .band {
+        display: grid;
+        grid-template-columns: 17mm 1fr;
+        gap: 3mm;
+        padding: 2.5mm 3.5mm;
+        border: 0.3mm solid var(--rule);
+        background: var(--ivory);
+        font-size: 8.5pt;
+        line-height: 1.45;
+      }
+
+      .band strong {
+        color: var(--gold-deep);
+        font-family: var(--serif);
+        font-size: 12pt;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .band b {
+        font-weight: 600;
+      }
+
+      .fine {
+        margin-top: 3mm;
+        color: var(--muted);
+        font-size: 7.5pt;
+      }
+
+      /* ---------- Prompts ---------- */
+
+      .prompt {
+        margin-top: 5mm;
+        padding: 4mm 5mm 1mm;
+        border-left: 0.6mm solid var(--gold);
+        background: var(--ivory);
+      }
+
+      .prompt strong {
+        display: block;
+        font-family: var(--serif);
+        font-size: 14pt;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .prompt p {
+        margin: 1mm 0 0;
+        color: var(--muted);
+        font-size: 9pt;
+      }
+
+      .prompt .write-line {
+        height: 8mm;
+      }
+
+      /* ---------- Practice ---------- */
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3mm;
+        margin: 6mm 0 8mm;
+      }
+
+      .step {
+        padding: 4mm 3.5mm;
+        border-top: 0.6mm solid var(--gold);
+        background: var(--ivory);
+      }
+
+      .step span {
+        color: var(--gold-deep);
+        font-size: 7pt;
+        letter-spacing: 0.14em;
+      }
+
+      .step h3 {
+        margin: 1mm 0 1.5mm;
+        font-size: 15pt;
+      }
+
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 8.3pt;
+        line-height: 1.45;
+      }
+
+      .tracker {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8pt;
+      }
+
+      .tracker th {
+        padding: 2mm 2.5mm;
+        background: var(--deep-soft);
+        color: #f1eee5;
+        font-size: 7pt;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      .tracker td {
+        height: 11mm;
+        padding: 0 2.5mm;
+        border-bottom: 0.3mm solid var(--rule);
+        vertical-align: middle;
+      }
+
+      .tracker td:first-child {
+        width: 14mm;
+        color: var(--gold-deep);
+        font-weight: 600;
+      }
+
+      .tracker td + td {
+        border-left: 0.3mm solid var(--rule);
+      }
+
+      /* ---------- Next step ---------- */
+
+      .plan {
+        margin: 6mm 0 7mm;
+        padding: 6mm 7mm 5mm;
+        border: 0.3mm solid var(--rule);
+        background: var(--ivory);
+      }
+
+      .plan label {
+        display: block;
+        margin-top: 4mm;
+        color: #4f5d58;
+        font-size: 9.5pt;
+      }
+
+      .plan label:first-child {
+        margin-top: 0;
+      }
+
+      .continue {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm;
+      }
+
+      .continue div {
+        padding: 5mm;
+        background: var(--deep-soft);
+        color: #f1eee5;
+      }
+
+      .continue .eyebrow {
+        color: var(--gold);
+      }
+
+      .continue h3 {
+        margin-bottom: 2mm;
+        font-size: 15pt;
+      }
+
+      .continue p {
+        margin: 0;
+        color: #cfd5cc;
+        font-size: 8.8pt;
+        line-height: 1.5;
+      }
+
+      .site {
+        margin-top: 5mm;
+        color: var(--ink);
+        font-size: 9pt;
+      }
+
+      .site a {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .disclaimer {
+        margin-top: 5mm;
+        color: var(--muted);
+        font-size: 7.5pt;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Cover -->
+    <section class="page cover">
+      <div class="cover-top">
+        <span class="cover-mark">E / F</span>
+        <span>Field note 001</span>
+      </div>
+      <div class="cover-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="cover-body">
+        <p class="cover-kicker">A practice for people who lead</p>
+        <h1>The high achiever's <em>emotional fitness</em> check-in</h1>
+        <p class="cover-intro">
+          A considered pause to notice the patterns shaping your energy, decisions,
+          and relationships, and to choose one area to strengthen.
+        </p>
+      </div>
+      <div class="cover-bottom">
+        <span>Reflection guide</span>
+        <span>01 — 04</span>
+      </div>
+    </section>
+
+    <!-- 2. Welcome -->
+    <section class="page">
+      <div class="masthead"><strong>E / F</strong><span>Before you begin</span></div>
+      <p class="eyebrow">Welcome</p>
+      <h2>A starting point, <em>not a score.</em></h2>
+      <p class="lead">
+        You already know how to push through. This guide is about something quieter:
+        noticing what is happening inside you while you carry everything else. Set aside
+        around thirty minutes, find somewhere you won't be interrupted, and move through
+        the four parts at your own pace. You can also return to any part on its own.
+      </p>
+
+      <div class="welcome-grid">
+        <div class="part-card">
+          <span>01</span>
+          <h3>Notice where you are</h3>
+          <p>Eight honest statements to see how pressure is landing for you right now.</p>
+          <small>About 8 minutes</small>
+        </div>
+        <div class="part-card">
+          <span>02</span>
+          <h3>Recognise your patterns</h3>
+          <p>Five prompts to explore what tends to drive your reactions and energy.</p>
+          <small>About 10 minutes</small>
+        </div>
+        <div class="part-card">
+          <span>03</span>
+          <h3>A simple daily practice</h3>
+          <p>Pause. Notice. Choose. A five-step check-in, plus a seven-day tracker.</p>
+          <small>2 minutes a day</small>
+        </div>
+        <div class="part-card">
+          <span>04</span>
+          <h3>One practical next step</h3>
+          <p>Turn what you noticed into one small, specific commitment for this week.</p>
+          <small>About 5 minutes</small>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Answer for the last few weeks</strong>
+        <p>
+          Not your best day or your worst one. Notice what has been typical lately,
+          and let that be enough.
+        </p>
+      </div>
+      <div class="callout">
+        <strong>Curiosity over judgement</strong>
+        <p>
+          Whatever you find is information, not a verdict. Emotional fitness is a
+          skill you build over time, like any other you have already mastered.
+        </p>
+      </div>
+
+      <div class="page-footer"><span>The High Achiever's Emotional Fitness Check-In</span><span>02</span></div>
+    </section>
+
+    <!-- 3. Questionnaire -->
+    <section class="page">
+      <div class="masthead"><strong>E / F</strong><span>Part 01</span></div>
+      <p class="eyebrow">01 / Notice where you are</p>
+      <h2>How is pressure <em>landing lately?</em></h2>
+      <p class="lead">
+        Circle the number that feels most true for each statement:
+        1 rarely, 2 sometimes, 3 often, 4 most days, 5 almost always.
+      </p>
+
+      <div class="scale-key" aria-hidden="true">
+        <span>Rarely</span><span></span><span></span><span></span><span>Almost always</span>
+      </div>
+      <div class="question"><span class="num">01</span><p>I notice early when pressure is starting to affect how I feel.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">02</span><p>I can leave a little space between a strong feeling and my response.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">03</span><p>I can switch my attention away from work when I choose to.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">04</span><p>I can name what I need in a demanding moment, and ask for it.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">05</span><p>My decisions reflect what matters to me, not only what is urgent.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">06</span><p>Difficult conversations don't keep replaying long after they end.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">07</span><p>I let people close to me see how I'm really doing.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+      <div class="question"><span class="num">08</span><p>I feel a sense of meaning in my work, not just momentum.</p><div class="dots"><span data-n="1"></span><span data-n="2"></span><span data-n="3"></span><span data-n="4"></span><span data-n="5"></span></div></div>
+
+      <div class="score-row">
+        <div class="score-box">
+          <p class="eyebrow">Your total</p>
+          <p class="total"><span></span> / 40</p>
+        </div>
+        <div class="bands">
+          <div class="band"><strong>8–18</strong><span><b>Running on reserve.</b> Pressure may be setting the pace. Part 03 is a gentle place to start.</span></div>
+          <div class="band"><strong>19–29</strong><span><b>Steady, with stretch points.</b> Some areas feel solid; one or two may be asking for attention.</span></div>
+          <div class="band"><strong>30–40</strong><span><b>A strong foundation.</b> Keep the practices that are working, and notice what protects them.</span></div>
+        </div>
+      </div>
+      <p class="fine">
+        These ranges are a prompt for reflection, not an assessment. Your lowest-scoring
+        statement is often the most useful one to explore in Part 02.
+      </p>
+
+      <div class="page-footer"><span>The High Achiever's Emotional Fitness Check-In</span><span>03</span></div>
+    </section>
+
+    <!-- 4. Prompts -->
+    <section class="page">
+      <div class="masthead"><strong>E / F</strong><span>Part 02</span></div>
+      <p class="eyebrow">02 / Recognise your patterns</p>
+      <h2>Five prompts for a <em>clearer picture.</em></h2>
+      <p class="lead">
+        You don't need to answer all five at once. Choose the prompt that feels most
+        useful today and write without looking for a perfect answer.
+      </p>
+
+      <div class="prompt">
+        <strong>1. When does my energy change?</strong>
+        <p>What tends to happen just before I feel stretched, distracted, or depleted?</p>
+        <div class="write-line"></div><div class="write-line"></div>
+      </div>
+      <div class="prompt">
+        <strong>2. What is my first response under pressure?</strong>
+        <p>Do I speed up, withdraw, take over, seek reassurance, or something else?</p>
+        <div class="write-line"></div><div class="write-line"></div>
+      </div>
+      <div class="prompt">
+        <strong>3. Which conversations stay with me?</strong>
+        <p>What might they reveal about a value, boundary, or need that matters to me?</p>
+        <div class="write-line"></div><div class="write-line"></div>
+      </div>
+      <div class="prompt">
+        <strong>4. Where do I make room for recovery?</strong>
+        <p>What helps me transition out of work, even briefly, and how often do I allow it?</p>
+        <div class="write-line"></div><div class="write-line"></div>
+      </div>
+      <div class="prompt">
+        <strong>5. What would a thoughtful response look like?</strong>
+        <p>In one current situation, what might I choose if I had a little more space?</p>
+        <div class="write-line"></div><div class="write-line"></div>
+      </div>
+
+      <div class="page-footer"><span>The High Achiever's Emotional Fitness Check-In</span><span>04</span></div>
+    </section>
+
+    <!-- 5. Practice -->
+    <section class="page">
+      <div class="masthead"><strong>E / F</strong><span>Part 03</span></div>
+      <p class="eyebrow">03 / A simple daily practice</p>
+      <h2>Pause. Notice. <em>Choose.</em></h2>
+      <p class="lead">
+        Use this two-minute check-in at a natural transition in your day: before a
+        meeting, after a difficult conversation, or as you close your laptop.
+      </p>
+
+      <div class="steps">
+        <div class="step"><span>01</span><h3>Pause</h3><p>Let your attention settle. Feel your feet on the floor, or follow one steady breath.</p></div>
+        <div class="step"><span>02</span><h3>Name</h3><p>What feeling, sensation, or thought is most present? Ordinary words are enough.</p></div>
+        <div class="step"><span>03</span><h3>Ask</h3><p>What might this moment be asking of me? Is there a need or boundary here?</p></div>
+        <div class="step"><span>04</span><h3>Choose</h3><p>What is one response I can take on purpose, rather than on autopilot?</p></div>
+        <div class="step"><span>05</span><h3>Reflect</h3><p>Afterwards, note what you learned. Return to it; don't try to perfect it.</p></div>
+      </div>
+
+      <h3>Your seven-day tracker</h3>
+      <p class="lead" style="margin-top: 1.5mm">Jot a few words each day. Patterns usually show up by the end of the week.</p>
+      <table class="tracker">
+        <thead>
+          <tr><th>Day</th><th>The moment</th><th>What I noticed</th><th>What I chose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mon</td><td></td><td></td><td></td></tr>
+          <tr><td>Tue</td><td></td><td></td><td></td></tr>
+          <tr><td>Wed</td><td></td><td></td><td></td></tr>
+          <tr><td>Thu</td><td></td><td></td><td></td></tr>
+          <tr><td>Fri</td><td></td><td></td><td></td></tr>
+          <tr><td>Sat</td><td></td><td></td><td></td></tr>
+          <tr><td>Sun</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="page-footer"><span>The High Achiever's Emotional Fitness Check-In</span><span>05</span></div>
+    </section>
+
+    <!-- 6. Next step -->
+    <section class="page">
+      <div class="masthead"><strong>E / F</strong><span>Part 04</span></div>
+      <p class="eyebrow">04 / One practical next step</p>
+      <h2>What will you <em>try this week?</em></h2>
+      <p class="lead">
+        Small and specific beats ambitious and vague. Choose one thing you could
+        realistically do, and decide when you will look back on it.
+      </p>
+
+      <div class="plan">
+        <label>A moment I want to meet differently:</label>
+        <div class="write-line"></div>
+        <label>One small practice I will make room for:</label>
+        <div class="write-line"></div>
+        <label>Who or what will help me keep to it:</label>
+        <div class="write-line"></div>
+        <label>When I will check in with myself again:</label>
+        <div class="write-line"></div>
+      </div>
+
+      <p class="eyebrow">Keep going</p>
+      <div class="continue">
+        <div>
+          <p class="eyebrow">Introductory workshop</p>
+          <h3>Experience the approach</h3>
+          <p>A practical, welcoming 2.5-hour introduction to emotional fitness, held live online.</p>
+        </div>
+        <div>
+          <p class="eyebrow">One-to-one support</p>
+          <h3>Go deeper, privately</h3>
+          <p>A confidential 60-minute conversation centred on your goals and current challenges.</p>
+        </div>
+      </div>
+      <p class="site">
+        Find out more at
+        <a href="https://emotional-fitness.createyourbestsite-cl.workers.dev/">emotional-fitness.createyourbestsite-cl.workers.dev</a>
+      </p>
+
+      <p class="disclaimer">
+        This guide is for personal reflection and education. It is not a diagnostic tool or
+        a substitute for mental health care. If you are struggling, please contact a
+        qualified professional or your local emergency services. Sample guide created for
+        a demo site; the programmes described are illustrative.
+      </p>
+
+      <div class="page-footer"><span>© Emotional Fitness</span><span>06</span></div>
+    </section>
+  </body>
+</html>

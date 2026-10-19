@@ -9,6 +9,7 @@ npm run dev       # Astro dev server (:4321) + Hono API via `wrangler dev` (:878
 npm run dev:web   # Astro only
 npm run dev:api   # Hono worker only
 npm run build     # Static Astro build → dist/
+npm run build:guide  # Regenerate the lead-magnet PDF from guide/ (needs Google Chrome)
 npm run preview   # Build, then serve dist/ + API through wrangler, the same way Cloudflare does
 npm run deploy    # Build and `wrangler deploy` (Cloudflare Workers with static assets)
 npm run check     # `astro check` (frontend) + `tsc -p server` (worker)
@@ -32,7 +33,7 @@ A single-page marketing landing page for "Emotional Fitness" (emotional-fitness 
   - `data-conversion="<event>"`: fires `recordConversion(event)` on click (`src/scripts/analytics.ts`). This dispatches a `window` `CustomEvent("emotional-fitness:conversion")` and stands in for real analytics.
   - `data-open-dialog="workshop|session|intro"`: opens the single shared `<dialog>` in `ContactDialog.astro`, which fills in its text from `dialogContent`.
   - Success and error states switch with the `hidden` attribute. Tailwind's preflight makes `[hidden]` override the CSS `display` value.
-- `public/emotional-fitness-check-in.html` is the downloadable lead-magnet guide. It's a standalone page with its own styles. In production Cloudflare redirects `*.html` to the URL without the extension, which is why the download link sets an explicit `download` filename.
+- The lead-magnet download is `public/emotional-fitness-check-in.pdf`. It's generated, so don't edit it by hand. Its source is `guide/emotional-fitness-check-in.html`, a standalone A4 print layout. Rebuild it with `npm run build:guide`, which prints it through headless Chrome; set `CHROME_PATH` if Chrome isn't in the default macOS location. Each `.page` is a fixed A4 sheet that clips overflow. After editing, check every page of the output, then commit the regenerated PDF.
 
 ### API (`server/`)
 
